@@ -157,7 +157,7 @@ const UI_TEXT = {
   "Try Article 21, equality, Parliament…":"Try Article 21, equality, Parliament…",
   "This reader provides simplified study summaries and navigation, not a substitute for the authoritative legal text. Some provisions have been inserted, amended, omitted or repealed. Check the official Constitution for exact wording, clauses, provisos and current legal effect.":"This reader provides simplified study summaries and navigation, not a substitute for the authoritative legal text. Some provisions have been inserted, amended, omitted or repealed. Check the official Constitution for exact wording, clauses, provisos and current legal effect.",
   "Contents / Home":"Contents / Home","Previous":"Previous","Next":"Next","Sound: On":"Sound: On","Sound: Off":"Sound: Off",
-  "What is this article for?":"What is this article for?","Important details":"Important details",
+  "What is this article for?":"What this article is about","Important details":"Important points",
   "Full legal text and current amendments: consult the official Constitution. This app gives concise study notes and does not reproduce every clause or proviso.":"Full legal text and current amendments: consult the official Constitution. This app gives concise study notes and does not reproduce every clause or proviso.",
   "Official Constitution of India publications ↗":"Official Constitution of India publications ↗",
   "India Code — central legislation ↗":"India Code — central legislation ↗",
@@ -169,7 +169,7 @@ const UI_TEXT = {
   "Try Article 21, equality, Parliament…":"അനുച്ഛേദം 21, സമത്വം, പാർലമെന്റ്…",
   "This reader provides simplified study summaries and navigation, not a substitute for the authoritative legal text. Some provisions have been inserted, amended, omitted or repealed. Check the official Constitution for exact wording, clauses, provisos and current legal effect.":"ഈ വായനാസഹായി പഠനത്തിനുള്ള ലളിതമായ സംഗ്രഹങ്ങളും വഴികാട്ടലും നൽകുന്നു. ഇത് ഔദ്യോഗിക ഭരണഘടനാ പാഠത്തിന് പകരമല്ല. കൃത്യമായ വാചകങ്ങൾക്കും ഭേദഗതികൾക്കും നിലവിലെ നിയമസ്ഥിതിക്കും ഔദ്യോഗിക പാഠം പരിശോധിക്കുക.",
   "Contents / Home":"ഉള്ളടക്കം / മുഖപ്പേജ്","Previous":"മുമ്പത്തെത്","Next":"അടുത്തത്","Sound: On":"ശബ്ദം: ഓൺ","Sound: Off":"ശബ്ദം: ഓഫ്",
-  "What is this article for?":"ഈ അനുച്ഛേദത്തിന്റെ ഉദ്ദേശ്യം എന്ത്?","Important details":"പ്രധാന വിവരങ്ങൾ",
+  "What is this article for?":"ഈ അനുച്ഛേദം എന്തിനെക്കുറിച്ചാണ്?","Important details":"പ്രധാന കാര്യങ്ങൾ",
   "Full legal text and current amendments: consult the official Constitution. This app gives concise study notes and does not reproduce every clause or proviso.":"പൂർണ്ണമായ നിയമപാഠത്തിനും നിലവിലെ ഭേദഗതികൾക്കും ഔദ്യോഗിക ഭരണഘടന പരിശോധിക്കുക. ഈ ആപ്പ് ചുരുക്ക പഠനക്കുറിപ്പുകളാണ് നൽകുന്നത്.",
   "Official Constitution of India publications ↗":"ഇന്ത്യൻ ഭരണഘടനയുടെ ഔദ്യോഗിക പ്രസിദ്ധീകരണങ്ങൾ ↗",
   "India Code — central legislation ↗":"ഇന്ത്യ കോഡ് — കേന്ദ്ര നിയമങ്ങൾ ↗",
@@ -235,8 +235,48 @@ function openArticle(n,partId,direction="open"){
     playPageSound();
   }
 }
-function renderArticle(n,partId,transition='open'){let p=PARTS.find(x=>x[0]===partId)||PARTS.find(x=>x[2].includes(n));if(!p)return;const k=articleKey(String(n),p[0]);readArticles.add(k);saveSet(STORE.read,readArticles);refreshFeatureCount();$("bookmarkCurrent").textContent=bookmarked.has(k)?"★ Bookmarked — tap to remove":"☆ Bookmark this article";$("readStatus").textContent="✓ Added to reading progress";const lang=currentLang();let title=(lang==="ml"&&ML_TITLES[n])?ML_TITLES[n]:(TITLES[n]||"Constitutional provision");let d=(lang==="ml"&&ML_DETAILS[n])?ML_DETAILS[n]:DETAILS[n];let summary=d?d[0]:(TITLES[n]?(lang==="ml"&&ML_TITLES[n]?`${ML_TITLES[n]} സംബന്ധിച്ച വ്യവസ്ഥ.`:`This provision concerns ${TITLES[n].toLowerCase()}.`):(lang==="ml"?`ഇത് ഭാഗം ${p[0]}, ${ML_PARTS[p[0]]||p[1]} എന്നിവയുമായി ബന്ധപ്പെട്ട അനുച്ഛേദമാണ്.`:`This article belongs to Part ${p[0]}, ${p[1]}.`));let detail=d?d[1]:(lang==="ml"?"ഈ വ്യവസ്ഥയുടെ കൃത്യമായ പരിധി മനസ്സിലാക്കാൻ അനുബന്ധ വകുപ്പുകളും ഭേദഗതികളും കോടതി വിധികളും പരിശോധിക്കുക. ഈ ആപ്പ് പൂർണ്ണമായ നിയമപാഠം നൽകുന്നില്ല.":"Read the provision in its surrounding constitutional context. Its clauses, provisos, amendments and judicial interpretation may affect its precise scope. This reader does not reproduce the complete legal wording.");let why=d?d[2]:(lang==="ml"?"കൃത്യമായ നിയമവിവരങ്ങൾക്ക് ഔദ്യോഗിക ഭരണഘടനയും ബന്ധപ്പെട്ട നിയമങ്ങളും കോടതി വിധികളും പരിശോധിക്കുക.":"For an accurate understanding, consult the official Constitution and relevant legislation or judgments. This entry is a navigation and study aid rather than a full legal commentary.");let idx=flat.findIndex(a=>a.number===n&&a.part===p[0]);$("home").classList.add("hidden");document.body.classList.add("reading-mode");$("reader").style.display="block";$("position").textContent=`PART ${p[0]} · ${idx+1} / ${flat.length}`;$("page").classList.remove("page-turn-open","page-turn-in-next","page-turn-in-prev","page-turn-out-next","page-turn-out-prev");void $("page").offsetWidth;$("page").classList.add(transition==="next"?"page-turn-in-next":transition==="prev"?"page-turn-in-prev":"page-turn-open");$("page").innerHTML=`<div style="display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap"><span class="eyebrow">PART ${esc(p[0])}</span></div><p class="eyebrow">${esc(lang==="ml"?(ML_PARTS[p[0]]||p[1]):p[1])}</p><h2>${lang==="ml"?"അനുച്ഛേദം":"Article"} ${esc(n)}</h2><h3 style="margin-top:8px">${esc(title)}</h3><div class="callout"><div class="eyebrow">${esc(ui("What is this article for?"))}</div><p>${esc(summary)}</p></div><hr class="rule"><h3>${esc(ui("Important details"))}</h3><p class="page-text">${esc(detail)}</p><p class="page-text" style="margin-top:10px">${esc(why)}</p><hr class="rule"><div class="eyebrow">${lang==="ml"?"ഭാഗം":"Part"} ${esc(p[0])} · ${esc(lang==="ml"?(ML_PARTS[p[0]]||p[1]):p[1])}</div><p style="font-size:.88rem;line-height:1.7;margin-top:8px">${esc(ui("Full legal text and current amendments: consult the official Constitution. This app gives concise study notes and does not reproduce every clause or proviso."))}</p><p><a href="https://www.legislative.gov.in/constitution-of-india/" target="_blank" rel="noopener noreferrer">${esc(ui("Official Constitution of India publications ↗"))}</a></p><p><a href="https://www.indiacode.nic.in/" target="_blank" rel="noopener noreferrer">${esc(ui("India Code — central legislation ↗"))}</a></p><div class="page-number">— ${idx+1} —</div>`;$("prev").disabled=idx<=0;$("next").disabled=idx<0||idx>=flat.length-1; $("reader").dataset.index=idx;if(transition==="open"){const pageTop=$("page").getBoundingClientRect().top+window.scrollY-12;window.scrollTo({top:Math.max(0,pageTop),behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});}}
-
+function renderArticle(n,partId,transition='open'){
+ let p=PARTS.find(x=>x[0]===partId)||PARTS.find(x=>x[2].includes(n));if(!p)return;
+ const k=articleKey(String(n),p[0]);readArticles.add(k);saveSet(STORE.read,readArticles);refreshFeatureCount();
+ $("bookmarkCurrent").textContent=bookmarked.has(k)?"★ Bookmarked — tap to remove":"☆ Bookmark this article";
+ $("readStatus").textContent="✓ Added to reading progress";
+ const lang=currentLang(),ml=lang==="ml";
+ let title=(ml&&ML_TITLES[n])?ML_TITLES[n]:(TITLES[n]|| (ml?"ഭരണഘടനാ വ്യവസ്ഥ":"Constitutional provision"));
+ const d=(ml&&ML_DETAILS[n])?ML_DETAILS[n]:DETAILS[n];
+ const rawTitle=TITLES[n]||null;
+ let summary=d?d[0]:(rawTitle?(ml?`${title} സംബന്ധിച്ച ഭരണഘടനാ വ്യവസ്ഥയാണ് ഇത്.`:`This provision addresses ${rawTitle.charAt(0).toLowerCase()+rawTitle.slice(1)}.`):(ml?`ഭാഗം ${p[0]} — ${ML_PARTS[p[0]]||p[1]} എന്ന വിഷയപരിധിയിലുള്ള അനുച്ഛേദമാണിത്. കൃത്യമായ വിഷയത്തിന് ഔദ്യോഗിക പാഠത്തിലെ തലക്കെട്ട് പരിശോധിക്കുക.`:`This article falls under Part ${p[0]} — ${p[1]}. Check the official text for its exact subject and wording.`));
+ let points=[];
+ if(d){points=[d[1],d[2]].filter(Boolean);}
+ else if(rawTitle){
+   points=ml?[
+    `ഈ വ്യവസ്ഥയുടെ പ്രധാന വിഷയം: ${title}.`,
+    `ഇത് ഭാഗം ${p[0]} (${ML_PARTS[p[0]]||p[1]})-ന്റെ ഭാഗമാണ്; ബന്ധപ്പെട്ട അനുച്ഛേദങ്ങളും ബാധകമായ ഭേദഗതികളും കൂടി വായിക്കുക.`,
+    `കൃത്യമായ വ്യവസ്ഥകൾ, ഒഴിവുകൾ, നിയന്ത്രണങ്ങൾ എന്നിവയ്ക്കായി ഔദ്യോഗിക ഭരണഘടനാ പാഠം പരിശോധിക്കുക.`
+   ]:[
+    `Main subject: ${rawTitle}.`,
+    `This provision is part of Part ${p[0]} (${p[1]}); read it alongside related Articles and applicable amendments.`,
+    `Check the official text for exact clauses, exceptions and limits.`
+   ];
+ } else {
+   points=ml?[
+    `ഈ അനുച്ഛേദം ${ML_PARTS[p[0]]||p[1]} എന്ന ഭാഗത്തിലാണ് ഉൾപ്പെട്ടിരിക്കുന്നത്.`,
+    `അനുച്ഛേദത്തിന്റെ കൃത്യമായ വിഷയവും നിയമപ്രഭാവവും ഔദ്യോഗിക പാഠത്തിൽ നിന്ന് സ്ഥിരീകരിക്കുക.`,
+    `ഭേദഗതികൾ, ഒഴിവുകൾ, ബന്ധപ്പെട്ട കോടതി വിധികൾ എന്നിവ ഉണ്ടെങ്കിൽ അവയും പരിശോധിക്കുക.`
+   ]:[
+    `This Article is listed under Part ${p[0]} (${p[1]}).`,
+    `Verify its exact subject and legal effect against the official constitutional text.`,
+    `Check any amendments, exceptions and relevant court judgments.`
+   ];
+ }
+ const idx=flat.findIndex(a=>a.number===n&&a.part===p[0]);
+ $("home").classList.add("hidden");document.body.classList.add("reading-mode");$("reader").style.display="block";
+ $("position").textContent=`PART ${p[0]} · ${idx+1} / ${flat.length}`;
+ $("page").classList.remove("page-turn-open","page-turn-in-next","page-turn-in-prev","page-turn-out-next","page-turn-out-prev");void $("page").offsetWidth;
+ $("page").classList.add(transition==="next"?"page-turn-in-next":transition==="prev"?"page-turn-in-prev":"page-turn-open");
+ $("page").innerHTML=`<div style="display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap"><span class="eyebrow">PART ${esc(p[0])}</span></div><p class="eyebrow">${esc(ml?(ML_PARTS[p[0]]||p[1]):p[1])}</p><h2>${ml?"അനുച്ഛേദം":"Article"} ${esc(n)}</h2><h3 style="margin-top:8px">${esc(title)}</h3><div class="callout"><div class="eyebrow">${esc(ui("What is this article for?"))}</div><p>${esc(summary)}</p></div><hr class="rule"><h3>${esc(ui("Important details"))}</h3><ul class="page-text" style="padding-left:22px;line-height:1.75">${points.map(point=>`<li style="margin:0 0 9px">${esc(point)}</li>`).join("")}</ul><hr class="rule"><div class="eyebrow">${ml?"ഭാഗം":"Part"} ${esc(p[0])} · ${esc(ml?(ML_PARTS[p[0]]||p[1]):p[1])}</div><p style="font-size:.88rem;line-height:1.7;margin-top:8px">${esc(ui("Full legal text and current amendments: consult the official Constitution. This app gives concise study notes and does not reproduce every clause or proviso."))}</p><p><a href="https://www.legislative.gov.in/constitution-of-india/" target="_blank" rel="noopener noreferrer">${esc(ui("Official Constitution of India publications ↗"))}</a></p><p><a href="https://www.indiacode.nic.in/" target="_blank" rel="noopener noreferrer">${esc(ui("India Code — central legislation ↗"))}</a></p><div class="page-number">— ${idx+1} —</div>`;
+ $("prev").disabled=idx<=0;$("next").disabled=idx<0||idx>=flat.length-1;$("reader").dataset.index=idx;
+ if(transition==="open"){const pageTop=$("page").getBoundingClientRect().top+window.scrollY-12;window.scrollTo({top:Math.max(0,pageTop),behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});}
+}
 let pageSoundOn=true,audioContext=null;
 function playPageSound(){
   if(!pageSoundOn)return;
