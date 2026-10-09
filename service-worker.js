@@ -1,4 +1,4 @@
-const CACHE_NAME = 'constitution-reader-v2';
+const CACHE_NAME = 'constitution-reader-v3';
 const APP_FILES = [
   './',
   './index.html',
