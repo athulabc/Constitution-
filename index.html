@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#263d32">
+<title>Constitution of India — Interactive Reader</title>
+<style>
+:root{--green:#263d32;--green2:#345343;--gold:#c9ae70;--ink:#30291f;--muted:#746b5c;--paper:#fbf4e4;--paper2:#f0e5cc;--line:#d7c8a7;--bg:#eee9df;--white:#fffdf7;--shadow:rgba(47,38,22,.13)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}.wrap{max-width:1000px;margin:auto;padding:18px}.cover{background:var(--green);color:#f8f0dc;border:5px double var(--gold);padding:26px 18px;text-align:center;box-shadow:5px 6px 0 #d7cdbb;margin-bottom:22px}.cover .kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#e2cd91}.cover h1{font:clamp(2rem,7vw,3.8rem)/1.12 Georgia,"Times New Roman",serif;margin:13px 0}.cover .symbol{font-size:2.2rem}.cover p{margin:8px 0;color:#e9dfc9}.serif{font-family:Georgia,"Times New Roman",serif}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:14px 0}.btn{border:1px solid #cfc2a7;border-radius:7px;padding:10px 14px;min-height:44px;background:var(--white);color:var(--ink);font:inherit;cursor:pointer}.btn.primary{background:var(--green);color:#fff8e8;border-color:var(--green)}.btn:focus-visible,input:focus-visible{outline:3px solid #b89a4e;outline-offset:2px}.btn:disabled{opacity:.4;cursor:not-allowed}.search{width:100%;padding:13px;border:1px solid #cfc2a7;border-radius:7px;background:var(--white);font:inherit;font-size:16px;color:var(--ink)}.muted{color:var(--muted)}.part{background:#f8f1e3;border:1px solid var(--line);border-radius:8px;margin:12px 0;overflow:hidden}.part-head{width:100%;text-align:left;border:0;background:transparent;padding:15px;cursor:pointer;color:var(--ink);font:inherit}.part-head strong{display:block;font:1.16rem Georgia,serif;margin:4px 0}.part-label,.eyebrow{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#79684a;font-weight:700}.part-body{padding:0 12px 14px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px}.article-card{border:1px solid #ded1b7;border-radius:5px;background:#fffaf0;text-align:left;padding:11px;color:var(--ink);cursor:pointer;min-height:75px}.article-card:hover{background:#f0e5cc}.article-card strong{display:block;font:1.05rem Georgia,serif}.article-card small{display:block;color:var(--muted);margin-top:4px;line-height:1.35}.reader{display:none}.bookpage{position:relative;background:linear-gradient(90deg,#e9ddc3 0,#fbf4e4 3.5%,#fff9ed 15%,#fbf4e4 100%);border:1px solid #cdbd9c;box-shadow:3px 4px 0 #d9ceb8,6px 7px 0 #f7efdf,8px 9px 0 #d1c2a4,12px 13px 20px rgba(47,38,22,.12);padding:clamp(21px,5vw,44px);margin:14px 0 22px;overflow:hidden;transform-style:preserve-3d;backface-visibility:hidden;perspective:1400px;min-height:460px}.bookpage:before{content:"";position:absolute;top:0;bottom:0;left:clamp(25px,4vw,39px);border-left:1px solid #d9b9a9;opacity:.8;pointer-events:none}.bookpage:after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(110,82,38,.018) 0,rgba(110,82,38,.018) 1px,transparent 1px,transparent 5px);mix-blend-mode:multiply}.bookpage>*{position:relative;z-index:1}.bookpage h2{font:clamp(1.9rem,6vw,2.7rem)/1.12 Georgia,serif;margin:10px 0;color:#2e382d}.bookpage h3{font:1.35rem Georgia,serif;margin:23px 0 7px;color:#3b3326}.bookpage .eyebrow{letter-spacing:.16em}.bookpage .rule{border:0;border-top:1px solid #bfae89;margin:19px 0}.bookpage .callout{background:linear-gradient(135deg,#f0e6d0,#e9ddc1);border-left:4px solid #8b774b;padding:14px;margin:15px 0;box-shadow:inset 0 0 0 1px rgba(139,119,75,.12)}.callout p{margin:7px 0 0}.page-text{line-height:1.85}.page-number{text-align:center;color:#79684a;font-size:.75rem;margin-top:28px;border-top:1px solid #dfd1b4;padding-top:12px}.page-turn-open{animation:bookOpen .48s cubic-bezier(.2,.7,.2,1) both}.page-turn-out-next{transform-origin:left center;animation:turnOutNext .28s ease-in both}.page-turn-out-prev{transform-origin:right center;animation:turnOutPrev .28s ease-in both}.page-turn-in-next{transform-origin:left center;animation:turnInNext .42s cubic-bezier(.18,.7,.18,1) both}.page-turn-in-prev{transform-origin:right center;animation:turnInPrev .42s cubic-bezier(.18,.7,.18,1) both}@keyframes bookOpen{from{opacity:.35;transform:perspective(1400px) rotateY(-9deg) translateX(8px)}to{opacity:1;transform:perspective(1400px) rotateY(0) translateX(0)}}@keyframes turnOutNext{0%{transform:perspective(1400px) rotateY(0);opacity:1}100%{transform:perspective(1400px) rotateY(-78deg);opacity:.2;filter:brightness(.78)}}@keyframes turnInNext{0%{transform:perspective(1400px) rotateY(76deg);opacity:.25;filter:brightness(.75)}100%{transform:perspective(1400px) rotateY(0);opacity:1;filter:brightness(1)}}@keyframes turnOutPrev{0%{transform:perspective(1400px) rotateY(0);opacity:1}100%{transform:perspective(1400px) rotateY(78deg);opacity:.2;filter:brightness(.78)}}@keyframes turnInPrev{0%{transform:perspective(1400px) rotateY(-76deg);opacity:.25;filter:brightness(.75)}100%{transform:perspective(1400px) rotateY(0);opacity:1;filter:brightness(1)}}.results{margin:10px 0}.note{font-size:.84rem;background:#e8e0cf;padding:12px;border-radius:6px}.all-list-heading{font:1.2rem Georgia,serif;margin:18px 0 8px;padding-bottom:7px;border-bottom:1px solid var(--line)}.all-list-part{margin-bottom:22px}.featurebar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.feature-panel{background:#f8f1e3;border:1px solid var(--line);border-radius:8px;padding:14px;margin:10px 0}.progress-track{height:9px;background:#e0d5bf;border-radius:20px;overflow:hidden;margin:7px 0 14px}.progress-fill{height:100%;background:var(--green);width:0}.chip{display:inline-block;border:1px solid #cfc2a7;border-radius:20px;padding:2px 8px;font-size:.72rem;color:#5f563f;margin-left:5px}.quiz-option{display:block;width:100%;text-align:left;margin:7px 0;padding:11px;border:1px solid #d4c5a6;border-radius:6px;background:#fffaf0;color:var(--ink);cursor:pointer;font:inherit}.quiz-option:hover{background:#eee4cd}.quiz-feedback{padding:10px;border-radius:6px;background:#eee4cd;margin-top:10px}.hidden{display:none!important}a{color:#315844}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.page-turn{animation:none}}@media(max-width:480px){.wrap{padding:10px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.article-card{padding:9px}.cover{padding:22px 12px}}
+</style>
+
+<meta name="theme-color" content="#5b3521">
+<meta name="description" content="An interactive Constitution of India reader with article summaries, bookmarks, quiz, and page-turn effects.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+
+</head>
+<body>
+<main class="wrap">
+<header class="cover">
+<div class="kicker">The Republic of India · A Reader's Edition</div>
+<div class="symbol" aria-hidden="true">⚖</div>
+<h1>THE CONSTITUTION<br>OF INDIA</h1>
+<div style="width:82px;border-top:1px solid var(--gold);margin:17px auto"></div>
+<p style="letter-spacing:.12em;font-size:.82rem">AN INTERACTIVE STUDY BOOK</p>
+<p style="font-size:.86rem">Explore the Parts · Understand the Articles · Learn the principles</p>
+</header>
+<section id="home">
+<div class="toolbar"><div><h2 class="serif" style="margin:0">Contents of the Constitution</h2><div class="muted">Choose a Part, then open an article.</div></div><span id="count" class="muted"></span></div>
+<div class="toolbar" style="background:#f8f1e3;border:1px solid var(--line);border-radius:8px;padding:10px 12px">
+  <span style="font-weight:650">Homepage view</span>
+  <label for="allArticlesSwitch" style="display:flex;align-items:center;gap:9px;cursor:pointer;min-height:44px">
+    <span id="viewModeLabel">By Part</span>
+    <input id="allArticlesSwitch" type="checkbox" role="switch" aria-label="Show all articles together" style="width:22px;height:22px;accent-color:var(--green);cursor:pointer">
+    <span>All articles</span>
+  </label>
+</div>
+<div class="featurebar">
+  <button class="btn" type="button" id="bookmarksBtn">★ My Bookmarks <span id="bookmarkCount">0</span></button>
+  <button class="btn" type="button" id="quizBtn">🧠 Revision Quiz</button>
+  <button class="btn" type="button" id="progressBtn">📈 Reading Progress</button>
+</div>
+<div id="featurePanel" class="feature-panel hidden" aria-live="polite"></div>
+<label for="search" style="display:block;font-weight:650;margin:12px 0 6px">Find an article or topic</label>
+<input id="search" class="search" type="search" placeholder="Try Article 21, equality, Parliament…">
+<div id="searchResults" class="results" aria-live="polite"></div>
+<div id="parts"></div>
+<div id="allArticles" class="hidden"></div>
+<p class="note">This reader provides simplified study summaries and navigation, not a substitute for the authoritative legal text. Some provisions have been inserted, amended, omitted or repealed. Check the official Constitution for exact wording, clauses, provisos and current legal effect.</p>
+<p><a href="https://www.legislative.gov.in/constitution-of-india/" target="_blank" rel="noopener noreferrer">Visit the Legislative Department's Constitution of India page ↗</a></p>
+</section>
+<section id="reader" class="reader">
+<div class="toolbar"><button class="btn" id="homeBtn">← Contents / Home</button><span id="position" class="muted"></span></div>
+<div class="toolbar" style="justify-content:flex-end"><button class="btn" type="button" id="bookmarkCurrent">☆ Bookmark this article</button><span id="readStatus" class="chip">Read progress tracked</span></div>
+<article id="page" class="bookpage serif" aria-live="polite"></article>
+<div class="toolbar"><button class="btn" id="prev">← Previous article</button><button class="btn" id="soundToggle" type="button" aria-pressed="true">🔊 Page sound: On</button><button class="btn primary" id="next">Next article →</button></div>
+</section>
+<footer class="muted" style="font-size:.8rem;text-align:center;padding:18px 0">A personal learning interface · Use official sources for legal study.</footer>
+</main>
+<script>
+"use strict";
+const PARTS=[
+["I","The Union and its Territory",["1","2","3","4"]],
+["II","Citizenship",range(5,11)],
+["III","Fundamental Rights",range(12,35).concat(["21A"])],
+["IV","Directive Principles of State Policy",range(36,51).concat(["39A","43A","43B","48A"])],
+["IVA","Fundamental Duties",["51A"]],
+["V","The Union",range(52,151).concat(["124A","124B","124C","134A","139A","144A","224A","224B"])],
+["VI","The States",range(152,237).concat(["213"])],
+["VII","States in Part B of the First Schedule (repealed)",["238 (repealed)"]],
+["VIII","The Union Territories",range(239,242).concat(["239AA","239AB","239B"])],
+["IX","The Panchayats",["243","243A","243B","243C","243D","243E","243F","243G","243H","243I","243J","243K","243L","243M","243N","243O"]],
+["IXA","The Municipalities",["243P","243Q","243R","243S","243T","243U","243V","243W","243X","243Y","243Z","243ZA","243ZB","243ZC","243ZD","243ZE","243ZF","243ZG"]],
+["IXB","The Co-operative Societies",["243ZH","243ZI","243ZJ","243ZK","243ZL","243ZM","243ZN","243ZO","243ZP","243ZQ","243ZR","243ZS","243ZT"]],
+["X","The Scheduled and Tribal Areas",["244","244A"]],
+["XI","Relations between the Union and the States",range(245,263)],
+["XII","Finance, Property, Contracts and Suits",range(264,300).concat(["300A"])],
+["XIII","Trade, Commerce and Intercourse within the Territory of India",range(301,307)],
+["XIV","Services under the Union and the States",range(308,323).concat(["323A","323B"])],
+["XIVA","Tribunals",["323A","323B"]],
+["XV","Elections",range(324,329).concat(["329A (omitted)"])],
+["XVI","Special Provisions Relating to Certain Classes",range(330,342).concat(["330A","332A","334A","338A","338B","342A"])],
+["XVII","Official Language",range(343,351)],
+["XVIII","Emergency Provisions",range(352,360)],
+["XIX","Miscellaneous",range(361,367).concat(["361A","361B","363A"])],
+["XX","Amendment of the Constitution",["368"]],
+["XXI","Temporary, Transitional and Special Provisions",range(369,392).concat(["371A","371B","371C","371D","371E","371F","371G","371H","371I","371J"])],
+["XXII","Short Title, Commencement, Authoritative Text in Hindi and Repeals",["393","394","394A","395"]]
+];
+function range(a,b){const x=[];for(let i=a;i<=b;i++)if(![31,238].includes(i))x.push(String(i));return x}
+const TITLES={
+"1":"Name and territory of the Union","2":"Admission or establishment of new States","3":"Formation of new States and alteration of areas, boundaries or names of existing States","4":"Laws made under Articles 2 and 3",
+"5":"Citizenship at the commencement of the Constitution","12":"Definition of the State","13":"Laws inconsistent with or in derogation of Fundamental Rights","14":"Equality before law","15":"Prohibition of discrimination on grounds of religion, race, caste, sex or place of birth","16":"Equality of opportunity in public employment","17":"Abolition of untouchability","18":"Abolition of titles","19":"Freedom of speech and other freedoms","20":"Protection in respect of conviction for offences","21":"Protection of life and personal liberty","21A":"Right to education","22":"Protection against arrest and detention in certain cases","23":"Prohibition of traffic in human beings and forced labour","24":"Prohibition of employment of children in factories, etc.","25":"Freedom of conscience and free profession, practice and propagation of religion","26":"Freedom to manage religious affairs","27":"Freedom as to payment of taxes for promotion of any particular religion","28":"Freedom as to attendance at religious instruction or worship in certain educational institutions","29":"Protection of interests of minorities","30":"Right of minorities to establish and administer educational institutions","32":"Remedies for enforcement of rights conferred by this Part",
+"36":"Definition","37":"Application of the principles contained in this Part","38":"State to secure a social order for the promotion of welfare of the people","39":"Certain principles of policy to be followed by the State","39A":"Equal justice and free legal aid","40":"Organisation of village panchayats","44":"Uniform civil code for the citizens","45":"Provision for early childhood care and education to children below the age of six years","48A":"Protection and improvement of environment and safeguarding of forests and wild life","50":"Separation of judiciary from executive","51":"Promotion of international peace and security","51A":"Fundamental duties",
+"52":"The President of India","53":"Executive power of the Union","54":"Election of President","61":"Procedure for impeachment of the President","72":"Power of President to grant pardons, etc.","74":"Council of Ministers to aid and advise President","76":"Attorney-General for India","79":"Constitution of Parliament","80":"Composition of the Council of States","81":"Composition of the House of the People","110":"Definition of Money Bills","112":"Annual financial statement (Union Budget)","123":"Power of President to promulgate Ordinances during recess of Parliament","124":"Establishment and constitution of Supreme Court","136":"Special leave to appeal by the Supreme Court","141":"Law declared by Supreme Court to be binding on all courts","143":"Power of President to consult Supreme Court","148":"Comptroller and Auditor-General of India",
+"153":"Governors of States","161":"Power of Governor to grant pardons, etc.","163":"Council of Ministers to aid and advise Governor","169":"Abolition or creation of Legislative Councils in States","200":"Assent to Bills","213":"Power of Governor to promulgate Ordinances","214":"High Courts for States","226":"Power of High Courts to issue certain writs","239AA":"Special provisions with respect to Delhi",
+"243":"Definitions (Panchayats)","246":"Subject-matter of laws made by Parliament and by the Legislatures of States","246A":"Special provision with respect to goods and services tax","262":"Adjudication of disputes relating to waters of inter-State rivers or river valleys","265":"Taxes not to be imposed save by authority of law","266":"Consolidated Funds and public accounts of India and of the States","280":"Finance Commission","300A":"Persons not to be deprived of property save by authority of law","301":"Freedom of trade, commerce and intercourse","312":"All-India services","315":"Public Service Commissions for the Union and for the States","320":"Functions of Public Service Commissions",
+"324":"Superintendence, direction and control of elections to be vested in an Election Commission","326":"Elections to the House of the People and to the Legislative Assemblies of States to be on the basis of adult suffrage","329":"Bar to interference by courts in electoral matters","330":"Reservation of seats for Scheduled Castes and Scheduled Tribes in the House of the People","338":"National Commission for Scheduled Castes","338A":"National Commission for Scheduled Tribes","338B":"National Commission for Backward Classes","343":"Official language of the Union","352":"Proclamation of Emergency","356":"Provisions in case of failure of constitutional machinery in States","360":"Provisions as to financial emergency","361":"Protection of President and Governors","368":"Power of Parliament to amend the Constitution and procedure therefor","370":"Temporary provisions with respect to the State of Jammu and Kashmir","371":"Special provision with respect to the States of Maharashtra and Gujarat","393":"Short title","394":"Commencement","394A":"Authoritative text in Hindi","395":"Repeals"
+};
+const TOPICS={
+"equality":["14","15","16","17","18"],"discrimination":["15","16"],"speech":["19"],"expression":["19"],"freedom":["19","21","25"],"life":["21"],"personal liberty":["21","22"],"education":["21A","45"],"untouchability":["17"],"religion":["25","26","27","28"],"minority":["29","30"],"supreme court":["124","136","141","143"],"high court":["214","226"],"money bill":["110"],"budget":["112"],"president":["52","53","54","72","74"],"prime minister":["74"],"election":["324","326"],"voting":["326"],"emergency":["352","356","360"],"amendment":["368"],"property":["300A"],"duties":["51A"],"panchayat":["243"],"gst":["246A"],"environment":["48A","51A"],"reservation":["330","338","338A","338B"]
+};
+const DETAILS={
+"1":["India, that is Bharat, is a Union of States.","The territory of India includes the States, Union Territories specified in the First Schedule, and any other territories acquired.","This establishes India's constitutional description and its territorial framework."],
+"14":["The State must treat people equally before the law and provide equal protection of the laws.","Equality does not require identical treatment in every situation. Constitutionally valid classifications may be permitted, but arbitrary State action can be challenged.","Article 14 is a core safeguard against arbitrary State action."],
+"19":["Article 19(1)(a) protects a citizen’s right to freedom of speech and expression.","Citizens also have other freedoms under Article 19, including peaceful assembly, forming associations, movement, residence and profession. These freedoms are subject to constitutionally permitted restrictions.","It protects open discussion and expression while allowing lawful, constitutionally specified restrictions."],
+"21":["No person may be deprived of life or personal liberty except according to procedure established by law.","Courts have interpreted this protection broadly, including important aspects of dignity and personal liberty. Its application depends on constitutional text, legislation and judicial interpretation.","Article 21 is one of the Constitution's most significant protections for individuals."],
+"21A":["The State must provide free and compulsory education to children aged six to fourteen, as provided by law.","Article 21A was inserted by the 86th Constitutional Amendment and operates alongside education legislation.","It makes elementary education a Fundamental Right for the specified age group."],
+"32":["A person can approach the Supreme Court to enforce Fundamental Rights.","The Supreme Court may issue writs such as habeas corpus, mandamus, prohibition, quo warranto and certiorari.","Dr B. R. Ambedkar famously described this provision as the Constitution's “heart and soul.”"],
+"39":["The State should shape policy around principles including adequate livelihood, fair distribution of resources and protection of workers and children.","These are Directive Principles. Article 37 says they are not directly enforceable by courts, but are fundamental in governance.","They guide lawmaking and public policy."],
+"51A":["Citizens have constitutional duties such as respecting the Constitution, the national flag and the national anthem.","Other duties include protecting India's sovereignty and integrity, promoting harmony and safeguarding the natural environment. The duties are listed in Article 51A, inserted by the 42nd Amendment.","Fundamental Duties describe civic responsibilities alongside constitutional rights."],
+"72":["The President has constitutional powers to grant pardons, reprieves, respites or remissions, and to suspend, remit or commute certain sentences.","The scope differs according to the type of sentence and laws involved.","This is a constitutional clemency power subject to the applicable legal framework."],
+"74":["There is a Council of Ministers, headed by the Prime Minister, to aid and advise the President.","The President generally acts in accordance with that advice, subject to the constitutional framework.","This is central to India's parliamentary system."],
+"110":["Article 110 defines what counts as a Money Bill.","The definition covers specified financial matters; not every Bill involving government expenditure is automatically a Money Bill.","The classification affects the legislative process in Parliament."],
+"123":["The President may promulgate an Ordinance when the constitutional conditions are met while both Houses of Parliament are not simultaneously in session.","An Ordinance has the force of law but is temporary and subject to constitutional limits and parliamentary control.","It is not a general substitute for ordinary legislation."],
+"141":["The law declared by the Supreme Court is binding on all courts within India.","The binding principle concerns the law declared, read in light of the judgment and its context.","This provision supports consistency in the judicial system."],
+"226":["High Courts may issue writs for enforcement of Fundamental Rights and for other purposes within their jurisdiction.","Its scope is wider in subject matter than Article 32, although jurisdictional and legal limits apply.","It is an important route for constitutional and public-law remedies."],
+"300A":["No person may be deprived of property except by authority of law.","The right to property is a constitutional right, but is no longer listed as a Fundamental Right.","Article 300A was introduced after the right was removed from Part III."],
+"324":["The Election Commission of India supervises, directs and controls elections specified in the Article.","The provision covers elections to Parliament, State Legislatures, and the offices of President and Vice-President, within the Constitution and election laws.","It establishes the constitutional basis for election administration."],
+"326":["Elections to the Lok Sabha and State Legislative Assemblies are based on adult suffrage, subject to constitutional and statutory qualifications.","The voting age was reduced from 21 to 18 by the 61st Amendment. Registration and voting are also governed by election laws.","It is a foundation of representative democracy."],
+"352":["A National Emergency may be proclaimed on constitutionally specified grounds and subject to required safeguards.","The Constitution sets out approval requirements and consequences; this is an exceptional power. Read with Articles 353, 358 and 359 for related effects.","It provides a constitutional framework for exceptional national circumstances."],
+"356":["This Article addresses failure of constitutional machinery in a State.","It permits specified Union action subject to constitutional conditions, parliamentary approval and judicial review.","It is commonly associated with President's Rule."],
+"368":["Parliament can amend the Constitution using the procedure specified in Article 368.","Some amendments require ratification by at least half of the State Legislatures. The Supreme Court has held that Parliament cannot destroy the Constitution's basic structure.","It sets out the constitutional amendment procedure."],
+"370":["This Article originally contained temporary provisions relating to Jammu and Kashmir; its operation and status were affected by constitutional and governmental measures in 2019.","The legal position has been considered by the Supreme Court. For current legal application, consult the official amended text and relevant judgments.","This is a historically and legally significant provision whose current status should be checked against authoritative sources."]
+};
+const $=id=>document.getElementById(id), flat=[];
+const STORE={read:"constitution_reader_read_v1",bookmarks:"constitution_reader_bookmarks_v1"};
+const memoryStore={};
+function loadSet(key){try{const raw=localStorage.getItem(key);return new Set(raw?JSON.parse(raw):[])}catch(e){return new Set(memoryStore[key]||[])}}
+function saveSet(key,set){const vals=[...set];memoryStore[key]=vals;try{localStorage.setItem(key,JSON.stringify(vals))}catch(e){}}
+let readArticles=loadSet(STORE.read), bookmarked=loadSet(STORE.bookmarks);
+function articleKey(n,p){return p+"|"+n}
+function refreshFeatureCount(){$("bookmarkCount").textContent=bookmarked.size}
+PARTS.forEach(p=>p[2].forEach(n=>flat.push({part:p[0],partTitle:p[1],number:String(n),title:TITLES[String(n)]||null})));
+$("count").textContent=flat.length+" article entries";
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function articleButton(n, partId, titleFallback){const k=articleKey(String(n),partId);const mark=readArticles.has(k)?" ✓ Read":"";const star=bookmarked.has(k)?" ★":"";return `<button class="article-card" type="button" data-article="${esc(n)}" data-part="${esc(partId)}"><strong>Article ${esc(n)}${mark}${star}</strong><small>${esc(TITLES[String(n)]||titleFallback)}</small></button>`}
+function renderParts(){ $("parts").innerHTML=PARTS.map(p=>`<section class="part"><button type="button" class="part-head" aria-expanded="false" data-expand="${esc(p[0])}"><span class="part-label">PART ${esc(p[0])}</span><strong>${esc(p[1])}</strong><span class="muted">${p[2].length} article entries · Tap to expand</span></button><div class="part-body hidden" data-partbody="${esc(p[0])}"><div class="grid">${p[2].map(n=>articleButton(n,p[0],p[1])).join("")}</div></div></section>`).join("");}
+function renderAllArticles(){ $("allArticles").innerHTML=PARTS.map(p=>`<section class="all-list-part"><h3 class="all-list-heading">Part ${esc(p[0])} — ${esc(p[1])}</h3><div class="grid">${p[2].map(n=>articleButton(n,p[0],p[1])).join("")}</div></section>`).join("");}
+function setHomeMode(showAll){$("parts").classList.toggle("hidden",showAll);$("allArticles").classList.toggle("hidden",!showAll);$("viewModeLabel").textContent=showAll?"All articles":"By Part";$("allArticlesSwitch").setAttribute("aria-checked",String(showAll));}
+function openArticle(n,partId,direction="open"){
+  const isArticleNavigation=$("reader").style.display==="block" && direction!=="open";
+  if(isArticleNavigation){
+    const page=$("page");
+    page.classList.remove("page-turn-open","page-turn-in-next","page-turn-in-prev","page-turn-out-next","page-turn-out-prev");
+    void page.offsetWidth;
+    page.classList.add(direction==="prev"?"page-turn-out-prev":"page-turn-out-next");
+    playPageSound();
+    const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.setTimeout(()=>renderArticle(n,partId,direction),reduced?0:270);
+  }else{
+    renderArticle(n,partId,"open");
+    playPageSound();
+  }
+}
+function renderArticle(n,partId,transition='open'){let p=PARTS.find(x=>x[0]===partId)||PARTS.find(x=>x[2].includes(n));if(!p)return;const k=articleKey(String(n),p[0]);readArticles.add(k);saveSet(STORE.read,readArticles);refreshFeatureCount();$("bookmarkCurrent").textContent=bookmarked.has(k)?"★ Bookmarked — tap to remove":"☆ Bookmark this article";$("readStatus").textContent="✓ Added to reading progress";let title=TITLES[n]||"Constitutional provision";let d=DETAILS[n];let summary=d?d[0]:(TITLES[n]?`This provision concerns ${TITLES[n].toLowerCase()}.`:`This article belongs to Part ${p[0]}, ${p[1]}.`);let detail=d?d[1]:"Read the provision in its surrounding constitutional context. Its clauses, provisos, amendments and judicial interpretation may affect its precise scope. This reader does not reproduce the complete legal wording.";let why=d?d[2]:"For an accurate understanding, consult the official Constitution and relevant legislation or judgments. This entry is a navigation and study aid rather than a full legal commentary.";let idx=flat.findIndex(a=>a.number===n&&a.part===p[0]);$("home").classList.add("hidden");$("reader").style.display="block";$("position").textContent=`PART ${p[0]} · ${idx+1} / ${flat.length}`;$("page").classList.remove("page-turn-open","page-turn-in-next","page-turn-in-prev","page-turn-out-next","page-turn-out-prev");void $("page").offsetWidth;$("page").classList.add(transition==="next"?"page-turn-in-next":transition==="prev"?"page-turn-in-prev":"page-turn-open");$("page").innerHTML=`<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="eyebrow">THE CONSTITUTION OF INDIA</span><span class="eyebrow">PART ${esc(p[0])}</span></div><hr class="rule"><p class="eyebrow">${esc(p[1])}</p><h2>Article ${esc(n)}</h2><h3 style="margin-top:8px">${esc(title)}</h3><div class="callout"><div class="eyebrow">What is this article for?</div><p>${esc(summary)}</p></div><hr class="rule"><h3>Important details</h3><p class="page-text">${esc(detail)}</p><p class="page-text" style="margin-top:10px">${esc(why)}</p><hr class="rule"><div class="eyebrow">Part ${esc(p[0])} · ${esc(p[1])}</div><p style="font-size:.88rem;line-height:1.7;margin-top:8px">Full legal text and current amendments: consult the official Constitution. This app gives concise study notes and does not reproduce every clause or proviso.</p><p><a href="https://www.legislative.gov.in/constitution-of-india/" target="_blank" rel="noopener noreferrer">Official Constitution of India publications ↗</a></p><p><a href="https://www.indiacode.nic.in/" target="_blank" rel="noopener noreferrer">India Code — central legislation ↗</a></p><div class="page-number">— ${idx+1} —</div>`;$("prev").disabled=idx<=0;$("next").disabled=idx<0||idx>=flat.length-1; $("reader").dataset.index=idx;window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});}
+
+let pageSoundOn=true,audioContext=null;
+function playPageSound(){
+  if(!pageSoundOn)return;
+  try{
+    const Ctx=window.AudioContext||window.webkitAudioContext;
+    if(!Ctx)return;
+    if(!audioContext)audioContext=new Ctx();
+    if(audioContext.state==="suspended")audioContext.resume();
+    const ctx=audioContext,now=ctx.currentTime,duration=.22;
+    const buffer=ctx.createBuffer(1,Math.floor(ctx.sampleRate*duration),ctx.sampleRate);
+    const data=buffer.getChannelData(0);
+    for(let i=0;i<data.length;i++){const fade=1-i/data.length;data[i]=(Math.random()*2-1)*fade;}
+    const source=ctx.createBufferSource();source.buffer=buffer;
+    const filter=ctx.createBiquadFilter();filter.type="bandpass";filter.frequency.setValueAtTime(1250,now);filter.frequency.exponentialRampToValueAtTime(550,now+duration);filter.Q.value=.7;
+    const gain=ctx.createGain();gain.gain.setValueAtTime(.0001,now);gain.gain.linearRampToValueAtTime(.055,now+.035);gain.gain.exponentialRampToValueAtTime(.0001,now+duration);
+    source.connect(filter);filter.connect(gain);gain.connect(ctx.destination);source.start(now);source.stop(now+duration);
+  }catch(e){/* Audio is optional; navigation remains fully functional. */}
+}
+$("soundToggle").addEventListener("click",()=>{
+  pageSoundOn=!pageSoundOn;
+  $("soundToggle").textContent=pageSoundOn?"🔊 Page sound: On":"🔇 Page sound: Off";
+  $("soundToggle").setAttribute("aria-pressed",String(pageSoundOn));
+  if(pageSoundOn)playPageSound();
+});
+
+function goHome(){ $("reader").style.display="none";$("home").classList.remove("hidden");renderHomeAfterProgress();window.scrollTo({top:0,behavior:"smooth"})}
+renderParts();
+renderAllArticles();
+$("allArticlesSwitch").addEventListener("change",e=>setHomeMode(e.target.checked));
+$("parts").addEventListener("click",e=>{const expand=e.target.closest("[data-expand]");if(expand){const body=document.querySelector(`[data-partbody="${CSS.escape(expand.dataset.expand)}"]`);const willOpen=body.classList.contains("hidden");document.querySelectorAll("[data-partbody]").forEach(el=>el.classList.add("hidden"));document.querySelectorAll("[data-expand]").forEach(btn=>btn.setAttribute("aria-expanded","false"));if(willOpen){body.classList.remove("hidden");expand.setAttribute("aria-expanded","true")}return}const b=e.target.closest("[data-article]");if(b)openArticle(b.dataset.article,b.dataset.part)});
+$("homeBtn").addEventListener("click",goHome);
+function move(delta){let i=Number($("reader").dataset.index)+delta;if(i>=0&&i<flat.length)openArticle(flat[i].number,flat[i].part,delta>0?"next":"prev")}
+$("prev").addEventListener("click",()=>move(-1));$("next").addEventListener("click",()=>move(1));
+$("search").addEventListener("input",e=>{let q=e.target.value.trim().toLowerCase(),out=$("searchResults");if(!q){out.innerHTML="";return}const topicHits=Object.entries(TOPICS).filter(([topic])=>topic.includes(q)||q.includes(topic)).flatMap(([,nums])=>nums);let hits=flat.filter(a=>a.number.toLowerCase().includes(q)||("article "+a.number).includes(q)||(a.title||"").toLowerCase().includes(q)||a.partTitle.toLowerCase().includes(q)||topicHits.includes(a.number)).slice(0,50);out.innerHTML=`<section class="part" style="padding:12px"><strong>${hits.length} matching entries${hits.length===50?" (first 50 shown)":""}</strong><div class="grid" style="margin-top:10px">${hits.map(a=>`<button type="button" class="article-card" data-result="${esc(a.number)}" data-part="${esc(a.part)}"><strong>Article ${esc(a.number)}</strong><small>${esc(a.title||a.partTitle)}</small></button>`).join("")}</div></section>`});
+$("searchResults").addEventListener("click",e=>{const b=e.target.closest("[data-result]");if(b)openArticle(b.dataset.result,b.dataset.part)});
+$("allArticles").addEventListener("click",e=>{const b=e.target.closest("[data-article]");if(b)openArticle(b.dataset.article,b.dataset.part)});
+
+function renderHomeAfterProgress(){renderParts();renderAllArticles();}
+function showFeaturePanel(content){$("featurePanel").innerHTML=content;$("featurePanel").classList.remove("hidden");}
+function showBookmarks(){
+  const items=flat.filter(a=>bookmarked.has(articleKey(a.number,a.part)));
+  showFeaturePanel(`<div class="toolbar" style="margin-top:0"><h3 class="serif" style="margin:0">My Bookmarks</h3><button class="btn" type="button" id="closeFeature">Close</button></div>${items.length?`<div class="grid">${items.map(a=>`<button type="button" class="article-card" data-feature-article="${esc(a.number)}" data-part="${esc(a.part)}"><strong>Article ${esc(a.number)} ★</strong><small>${esc(a.title||a.partTitle)} · Part ${esc(a.part)}</small></button>`).join("")}</div>`:`<p class="muted">No bookmarks yet. Open an article and tap “Bookmark this article” to save it here.</p>`}`);
+}
+function showProgress(){
+  const total=flat.length, done=flat.filter(a=>readArticles.has(articleKey(a.number,a.part))).length;
+  const byPart=PARTS.map(p=>{const n=p[2].filter(a=>readArticles.has(articleKey(String(a),p[0]))).length;return `<div style="margin:10px 0"><div style="display:flex;justify-content:space-between;gap:8px"><strong>Part ${esc(p[0])}: ${esc(p[1])}</strong><span>${n}/${p[2].length}</span></div><div class="progress-track"><div class="progress-fill" style="width:${p[2].length?Math.round(n/p[2].length*100):0}%"></div></div></div>`}).join("");
+  showFeaturePanel(`<div class="toolbar" style="margin-top:0"><h3 class="serif" style="margin:0">Reading Progress</h3><button class="btn" type="button" id="closeFeature">Close</button></div><p><strong>${done} of ${total}</strong> listed article entries opened (${total?Math.round(done/total*100):0}%).</p><div class="progress-track"><div class="progress-fill" style="width:${total?Math.round(done/total*100):0}%"></div></div>${byPart}<button type="button" class="btn" id="resetProgress">Reset reading progress</button>`);
+}
+const QUIZ=[
+{q:"Which Article guarantees equality before the law?",opts:["Article 12","Article 14","Article 19","Article 21"],a:1,why:"Article 14 guarantees equality before the law and equal protection of the laws."},
+{q:"Which Article protects life and personal liberty?",opts:["Article 17","Article 19","Article 21","Article 32"],a:2,why:"Article 21 protects life and personal liberty, subject to the constitutional text and its interpretation."},
+{q:"Which Article protects freedom of speech and expression?",opts:["Article 14","Article 19(1)(a)","Article 21A","Article 32"],a:1,why:"Article 19(1)(a) protects citizens' freedom of speech and expression, subject to permitted restrictions."},
+{q:"Which Article provides constitutional remedies through the Supreme Court for Fundamental Rights?",opts:["Article 21","Article 32","Article 110","Article 368"],a:1,why:"Article 32 allows people to approach the Supreme Court to enforce Fundamental Rights."},
+{q:"Which Article deals with Fundamental Duties?",opts:["Article 39","Article 44","Article 51A","Article 72"],a:2,why:"Article 51A lists the Fundamental Duties of citizens."},
+{q:"Which Article sets out the constitutional amendment procedure?",opts:["Article 226","Article 324","Article 356","Article 368"],a:3,why:"Article 368 sets out Parliament's constitutional amendment procedure."},
+{q:"Which Article defines a Money Bill?",opts:["Article 74","Article 110","Article 123","Article 141"],a:1,why:"Article 110 defines what counts as a Money Bill."},
+{q:"Which Article establishes the Election Commission's constitutional role?",opts:["Article 280","Article 300A","Article 324","Article 326"],a:2,why:"Article 324 vests superintendence, direction and control of specified elections in the Election Commission."},
+{q:"Which Article is associated with the Directive Principles on village panchayats?",opts:["Article 21A","Article 40","Article 51A","Article 72"],a:1,why:"Article 40 directs the State to organise village panchayats."},
+{q:"Which Article addresses failure of constitutional machinery in a State?",opts:["Article 352","Article 356","Article 360","Article 368"],a:1,why:"Article 356 concerns specified action when constitutional machinery in a State fails."}
+];
+let quizOrder=[],quizIndex=0,quizScore=0,quizAnswered=false;
+function startQuiz(){quizOrder=[...QUIZ.keys()].sort(()=>Math.random()-.5);quizIndex=0;quizScore=0;quizAnswered=false;renderQuiz();}
+function renderQuiz(){
+  const q=QUIZ[quizOrder[quizIndex]];
+  showFeaturePanel(`<div class="toolbar" style="margin-top:0"><h3 class="serif" style="margin:0">Revision Quiz</h3><button class="btn" type="button" id="closeFeature">Close</button></div><p class="muted">Question ${quizIndex+1} of ${quizOrder.length} · Score: ${quizScore}</p><h3 style="font:1.2rem Georgia,serif">${esc(q.q)}</h3><div>${q.opts.map((o,i)=>`<button type="button" class="quiz-option" data-answer="${i}" ${quizAnswered?"disabled":""}>${String.fromCharCode(65+i)}. ${esc(o)}</button>`).join("")}</div><div id="quizFeedback"></div><div class="toolbar"><button class="btn" type="button" id="quizNext" ${quizAnswered?"":"disabled"}>${quizIndex===quizOrder.length-1?"See results":"Next question →"}</button><button class="btn" type="button" id="quizRestart">Restart quiz</button></div>`);
+}
+function answerQuiz(i){
+  if(quizAnswered)return;const q=QUIZ[quizOrder[quizIndex]];quizAnswered=true;if(i===q.a)quizScore++;
+  $("featurePanel").querySelectorAll("[data-answer]").forEach(b=>{b.disabled=true;if(Number(b.dataset.answer)===q.a)b.style.borderColor="#345343";if(Number(b.dataset.answer)===i&&i!==q.a)b.style.borderColor="#9a5145"});
+  $("quizFeedback").innerHTML=`<div class="quiz-feedback"><strong>${i===q.a?"Correct!":"Not quite."}</strong><p>${esc(q.why)}</p></div>`;$("quizNext").disabled=false;
+}
+function quizResults(){showFeaturePanel(`<div class="toolbar" style="margin-top:0"><h3 class="serif" style="margin:0">Quiz complete</h3><button class="btn" type="button" id="closeFeature">Close</button></div><p style="font:1.5rem Georgia,serif">${quizScore} / ${quizOrder.length}</p><p>${quizScore===quizOrder.length?"Excellent — all answers correct!":quizScore>=7?"Good work. Review any answers you missed.":"Keep going. Revisit the article summaries and try again."}</p><button class="btn primary" type="button" id="quizRestart">Try another quiz</button>`);}
+$("bookmarksBtn").addEventListener("click",showBookmarks);
+$("progressBtn").addEventListener("click",showProgress);
+$("quizBtn").addEventListener("click",startQuiz);
+$("bookmarkCurrent").addEventListener("click",()=>{const i=Number($("reader").dataset.index);const a=flat[i];if(!a)return;const k=articleKey(a.number,a.part);if(bookmarked.has(k))bookmarked.delete(k);else bookmarked.add(k);saveSet(STORE.bookmarks,bookmarked);refreshFeatureCount();$("bookmarkCurrent").textContent=bookmarked.has(k)?"★ Bookmarked — tap to remove":"☆ Bookmark this article";renderHomeAfterProgress();});
+$("featurePanel").addEventListener("click",e=>{
+  if(e.target.closest("#closeFeature")){$("featurePanel").classList.add("hidden");return;}
+  const article=e.target.closest("[data-feature-article]");if(article){openArticle(article.dataset.featureArticle,article.dataset.part);return;}
+  if(e.target.closest("#resetProgress")){if(confirm("Reset all reading progress?")){readArticles.clear();saveSet(STORE.read,readArticles);renderHomeAfterProgress();showProgress();}return;}
+  if(e.target.closest("#quizRestart")){startQuiz();return;}
+  const ans=e.target.closest("[data-answer]");if(ans){answerQuiz(Number(ans.dataset.answer));return;}
+  if(e.target.closest("#quizNext")){if(quizIndex<quizOrder.length-1){quizIndex++;quizAnswered=false;renderQuiz();}else quizResults();return;}
+});
+refreshFeatureCount();
+
+</script>
+
+<script>
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>
