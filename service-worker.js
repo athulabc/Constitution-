@@ -1,10 +1,10 @@
-const CACHE_NAME = 'constitution-reader-v1';
+const CACHE_NAME = 'constitution-reader-v2';
 const APP_FILES = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './icons/icon-192.png',
-  './icons/icon-512.png'
+  './icon-192.png',
+  './icon-512.png'
 ];
 
 self.addEventListener('install', event => {
